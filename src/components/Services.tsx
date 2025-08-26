@@ -52,7 +52,7 @@ const Services = () => {
             Sectors We Serve
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Managed Automation as a Service (MAaaS) - End-to-end AI systems designed specifically for defense tech, venture capital, and real estate professionals who need military-grade reliability and compliance.
+            Managed Automation as a Service (MAaaS) - End-to-end AI systems designed specifically for Defense Tech, Venture Capital, and Real Estate professionals who need military-grade reliability and compliance.
           </p>
         </div>
 
