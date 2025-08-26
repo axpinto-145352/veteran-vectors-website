@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
               <img 
-                src="/public/ChatGPT Image Aug 22, 2025, 03_52_13 PM.png" 
+                src="./ChatGPT Image Aug 22, 2025, 03_52_13 PM.png" 
                 alt="Veteran Vectors Logo" 
                 className="h-12 w-auto"
               />
@@ -18,7 +18,7 @@ const Footer = () => {
               <span className="text-vv-teal font-military text-lg tracking-wider">COMMAND. CODE. CONQUER.</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Military-grade AI automation solutions for defense tech, venture capital/financial services, and real estate. 
+              Military-grade AI automation solutions for Defense Tech, Venture Capital/Financial Services, and Real Estate. 
               Delivering Managed Automation as a Service (MAaaS) with measurable ROI and built-in compliance.
             </p>
             <div className="flex space-x-4">
@@ -52,7 +52,7 @@ const Footer = () => {
             <div className="space-y-4 text-gray-300">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-vv-teal" />
-                <span>info@veteranvectors.io</span>
+                <span>anthony@veteranvectors.io</span>
               </div>
             </div>
             
@@ -72,7 +72,7 @@ const Footer = () => {
         <div className="border-t border-vv-teal/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 Veteran Vectors. All rights reserved.
+              © 2025 Veteran Vectors. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-gray-400">
               <a href="#" className="hover:text-vv-teal transition-colors">Privacy Policy</a>
