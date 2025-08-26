@@ -1,62 +1,144 @@
-name: Build and deploy to gh-pages (safe, uses skip-ci)
+# Safe GitHub Pages deploy workflow
+# - Runs on pushes to main (and manually via workflow_dispatch)
+# - Builds if package.json + build script exist
+# - Prepares a stable `public` publish folder:
+#     * copies `dist` (if present) -> public/
+#     * copies common static folders/files -> public/
+#     * ensures a CNAME is present in public/ by copying repo CNAME (if present)
+# - Deploys public/ to gh-pages using peaceiris/actions-gh-pages
+# - Uses GH_PAGES_PAT (if set) or falls back to GITHUB_TOKEN
+# - Uses commit message with [skip ci] to help avoid push->workflow loops
+name: Build and deploy to gh-pages (safe)
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-gh-pages-${{ github.sha }}
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (full history)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
+      - name: Setup Node.js (for build if needed)
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Install & build (if package.json exists)
+      - name: Install dependencies and build (if package.json exists)
+        id: build_step
         run: |
+          set -e
+
           if [ -f package.json ]; then
-            npm ci || true
+            echo "Found package.json — installing dependencies"
+            npm ci
+
+            # Detect whether a "build" script exists in package.json
             if npm run | grep -q ' build'; then
-              npm run build || true
+              echo "Detected build script — running npm run build"
+              npm run build
+              echo "built=true" >> $GITHUB_OUTPUT
+            else
+              echo "No build script detected — skipping build"
+              echo "built=false" >> $GITHUB_OUTPUT
             fi
+          else
+            echo "No package.json found — skipping npm install/build"
+            echo "built=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Prepare publish folder (public)
+        id: prepare_public
         run: |
+          set -e
           rm -rf public
           mkdir -p public
-          # If build produced dist, copy it into public
+
+          # If a build created dist (common for Vite/react), prefer that
           if [ -d "dist" ]; then
+            echo "Using dist as build output"
             cp -r -f dist/* public/ || true
           fi
-          # Copy common static sources into public (adjust paths if needed)
+
+          # If repository includes an assets folder with prebuilt bundles, copy it
+          if [ -d "assets" ]; then
+            echo "Copying assets -> public/assets"
+            mkdir -p public/assets
+            cp -r -f assets/* public/assets/ || true
+          fi
+
+          # Copy other common static source folders (adjust names if your repo differs)
+          for d in public_source public static assets_src images; do
+            if [ -d "$d" ]; then
+              echo "Copying $d -> public/"
+              cp -r -f "$d"/* public/ || true
+            fi
+          done
+
+          # Copy top-level files that are commonly required
           cp -f index.html public/index.html || true
           cp -f FAQ.html public/FAQ.html || true
+          cp -f faq.html public/faq.html || true
           cp -f newsletter.html public/newsletter.html || true
-          cp -f CNAME public/CNAME || true
-          mkdir -p public/js
-          cp -f js/dvf-sdk.js public/js/dvf-sdk.js || true
-          # Copy image folders (adjust name if your images folder differs)
-          if [ -d "public_source" ]; then cp -r -f public_source/* public/ || true; fi
-          if [ -d "assets" ]; then cp -r -f assets/* public/ || true; fi
-          if [ -d "images" ]; then cp -r -f images/* public/ || true; fi
+
+          # Preserve any js folder and specific JS files you rely on
+          if [ -d "js" ]; then
+            echo "Copying js -> public/js"
+            mkdir -p public/js
+            cp -r -f js/* public/js/ || true
+          fi
+
+          # Preserve repository CNAME if present (so the custom domain is not lost)
+          if [ -f CNAME ]; then
+            echo "Copying existing CNAME into public/CNAME"
+            cp -f CNAME public/CNAME || true
+          else
+            echo "No repository CNAME found — NOT creating a CNAME automatically"
+          fi
+
+          # List public contents for debugging in workflow logs
           echo "---- public folder contents ----"
           ls -la public || true
 
-      - name: Deploy to gh-pages (uses PAT if provided)
+      - name: Prevent accidental empty deploy
+        if: steps.prepare_public.outcome == 'success'
+        run: |
+          # If public directory is empty, fail early to avoid removing site with an empty push
+          if [ -z "$(ls -A public 2>/dev/null)" ]; then
+            echo "ERROR: public folder is empty — aborting deploy to avoid publishing an empty site."
+            echo "If you intentionally want to publish an empty site, remove this guard."
+            exit 1
+          fi
+
+      - name: Deploy to gh-pages
+        id: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
+          # Recommended: create a PAT (classic) with repo scope, add as GH_PAGES_PAT secret
+          # The action will use the personal_token if provided; otherwise it will use github_token.
           personal_token: ${{ secrets.GH_PAGES_PAT }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
           user_name: 'github-actions[bot]'
           user_email: '41898282+github-actions[bot]@users.noreply.github.com'
-          commit_message: "deploy: ${{ github.sha }} [skip ci]"
+          commit_message: 'deploy: ${{ github.sha }} [skip ci]'
+          # If you prefer the action to explicitly set the CNAME on the gh-pages branch,
+          # you can uncomment and set the value below (but we already copy public/CNAME above).
+          # cname: 'veteranvectors.io'
+
+      - name: Show deployment result
+        if: always()
+        run: |
+          echo "Deploy step exit status: $?"
+          echo "If the deploy step failed, check the above logs for git/permission errors."
