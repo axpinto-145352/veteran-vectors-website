@@ -6,7 +6,7 @@ const EmailCapture = () => {
     {
       icon: TrendingUp,
       title: 'Industry Trends',
-      description: 'Latest AI adoption trends in defense, VC, and real estate'
+      description: 'Latest AI adoption trends in Defense, Venture Capital, and Real Estate'
     },
     {
       icon: Command,
@@ -37,7 +37,7 @@ const EmailCapture = () => {
             
             <p className="text-xl text-gray-300 mb-8">
               Real stories. Practical AI. Actionable business insights delivered to your inbox.
-              Get exclusive intelligence on defense tech, venture capital/financial services, and real estate automation.
+              Get exclusive intelligence on Defense Tech, Venture Capital/Financial Services, and Real Estate automation.
             </p>
 
             <div className="space-y-6 mb-8">
@@ -64,7 +64,7 @@ const EmailCapture = () => {
                 THE VECTOR REPORT
               </h3>
               <p className="text-gray-300">
-                Get exclusive intelligence on defense tech, venture capital/financial services, and real estate automation
+                Get exclusive intelligence on Defense Tech, Venture Capital/Financial Services, and Real Estate automation
               </p>
             </div>
 
@@ -73,7 +73,7 @@ const EmailCapture = () => {
                 href="/newsletter.html"
                 className="bg-gradient-to-r from-vv-teal to-vv-cyan text-vv-dark px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 inline-flex items-center space-x-2 glow-teal hover-glow font-military"
               >
-                <span>ENLIST FOR INTEL</span>
+                <span>SUBSCRIBE HERE</span>
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
