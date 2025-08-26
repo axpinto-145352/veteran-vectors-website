@@ -1,4 +1,4 @@
-name: Build and deploy to gh-pages (safe)
+name: Build and deploy to gh-pages (safe, uses PAT)
 
 on:
   push:
@@ -30,22 +30,21 @@ jobs:
 
       - name: Copy static files into publish_dir (so they are always included)
         run: |
-          # Adjust paths if your files live in other locations
+          # Adjust these paths if your files are located elsewhere in the repo
           cp -f index.html public/index.html || true
           cp -f FAQ.html public/FAQ.html || true
           cp -f newsletter.html public/newsletter.html || true
           cp -f CNAME public/CNAME || true
-          # Copy the images/public folder into the publish folder
-          mkdir -p public/public
-          cp -r -f public_source/* public/ || true
           mkdir -p public/js
           cp -f js/dvf-sdk.js public/js/dvf-sdk.js || true
+          # If your images are in a folder like "assets" or "public_source", adjust the next line:
+          # cp -r -f assets public/ || true
 
-      - name: Deploy to gh-pages
+      - name: Deploy to gh-pages (uses PAT)
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.GH_PAGES_PAT }}
           publish_dir: ./public
           publish_branch: gh-pages
           user_name: 'github-actions[bot]'
-          user_email: '41898282+github-actions[bot]@users.noreply.github-actions[bot].com'
+          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
