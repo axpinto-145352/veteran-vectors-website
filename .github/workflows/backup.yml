@@ -1,13 +1,15 @@
-name: Backup gh-pages branch on change
+name: Backup gh-pages branch on change (safe)
 
 on:
   push:
+    # Only back up when main changes. Do NOT trigger on gh-pages to avoid loops.
     branches:
-      - gh-pages
       - main
 
 jobs:
   backup:
+    # Skip this job when the actor is the Actions bot (prevents loop if a workflow pushed)
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -26,7 +28,6 @@ jobs:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ts=$(date -u +"%Y%m%dT%H%M%SZ")
-          # create a branch named backup-gh-pages-<timestamp> and push it to the repo
           git checkout -B backup-gh-pages-${ts}
           git commit --allow-empty -m "Backup gh-pages snapshot @ $GITHUB_SHA"
           git push --force "https://x-access-token:${TOKEN}@github.com/${REPO}.git" HEAD:backup-gh-pages-${ts}
