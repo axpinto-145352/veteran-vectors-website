@@ -21,7 +21,7 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             <div className="flex items-center space-x-3">
               <img 
-                src="/public/ChatGPT Image Aug 22, 2025, 03_52_13 PM.png" 
+                src="./ChatGPT Image Aug 22, 2025, 03_52_13 PM.png" 
                 alt="Veteran Vectors Logo" 
                 className="h-10 w-auto"
               />
