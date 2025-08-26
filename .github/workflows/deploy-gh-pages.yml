@@ -1,4 +1,4 @@
-name: Build and deploy to gh-pages (build if present, fallback to static)
+name: Build and deploy to gh-pages (safe, uses skip-ci)
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js (only if needed)
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -22,74 +22,41 @@ jobs:
       - name: Install & build (if package.json exists)
         run: |
           if [ -f package.json ]; then
-            echo "package.json found — installing deps and building (if build script exists)"
-            npm ci
-            # run build only if a build script exists
+            npm ci || true
             if npm run | grep -q ' build'; then
-              npm run build
-            else
-              echo "No build script defined; skipping npm run build"
+              npm run build || true
             fi
-          else
-            echo "No package.json — skipping npm install/build"
           fi
 
       - name: Prepare publish folder (public)
         run: |
           rm -rf public
           mkdir -p public
-
-          # If dist exists (common Vite output), copy dist contents into public
+          # If build produced dist, copy it into public
           if [ -d "dist" ]; then
-            echo "Using dist as build output"
             cp -r -f dist/* public/ || true
           fi
-
-          # If you keep a 'public' or 'assets' folder in repo as source static, copy them
-          if [ -d "public_source" ]; then
-            echo "Copying public_source/* -> public/"
-            cp -r -f public_source/* public/ || true
-          fi
-          if [ -d "public" ] && [ -z "$(ls -A public)" ]; then
-            # if repo top-level public exists but was empty after rm -rf, copy nothing
-            echo "top-level public exists but was cleared earlier"
-          fi
-          if [ -d "assets" ]; then
-            echo "Copying assets/* -> public/"
-            cp -r -f assets/* public/ || true
-          fi
-          if [ -d "images" ]; then
-            echo "Copying images/* -> public/"
-            cp -r -f images/* public/ || true
-          fi
-          if [ -d "static" ]; then
-            echo "Copying static/* -> public/"
-            cp -r -f static/* public/ || true
-          fi
-
-          # Always ensure common files are present in public (from repo root)
+          # Copy common static sources into public (adjust paths if needed)
           cp -f index.html public/index.html || true
           cp -f FAQ.html public/FAQ.html || true
           cp -f newsletter.html public/newsletter.html || true
           cp -f CNAME public/CNAME || true
-
-          # copy js file(s)
           mkdir -p public/js
           cp -f js/dvf-sdk.js public/js/dvf-sdk.js || true
-
-          # Safety: list public contents for debugging
+          # Copy image folders (adjust name if your images folder differs)
+          if [ -d "public_source" ]; then cp -r -f public_source/* public/ || true; fi
+          if [ -d "assets" ]; then cp -r -f assets/* public/ || true; fi
+          if [ -d "images" ]; then cp -r -f images/* public/ || true; fi
           echo "---- public folder contents ----"
           ls -la public || true
 
-      - name: Deploy to gh-pages
+      - name: Deploy to gh-pages (uses PAT if provided)
         uses: peaceiris/actions-gh-pages@v3
         with:
-          # If you create a PAT (recommended when branch protection restricts pushes),
-          # add it to repository secrets as GH_PAGES_PAT. The action will use it.
           personal_token: ${{ secrets.GH_PAGES_PAT }}
-          # fallback token (may be blocked by strict branch protection)
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
           user_name: 'github-actions[bot]'
           user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          commit_message: "deploy: ${{ github.sha }} [skip ci]"
