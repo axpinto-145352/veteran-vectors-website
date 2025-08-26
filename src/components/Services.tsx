@@ -8,21 +8,21 @@ const Services = () => {
       title: 'Defense Tech',
       description: 'RFP triage, compliance matrices, proposal automation, and Pink/Red-Team prep for SBIR/STTR Phase II/III awardees.',
       features: ['Auto-summary & compliance checks', 'Past-performance libraries', 'Boilerplate generation', 'No CUI/ITAR data processing'],
-      image: '/public/u1283965911_Aim_for_30002000_px_hyper-realistic_cinematic_lig_1074521f-0072-4511-8689-f5dfb7696758_2 (1).png'
+      image: './u1283965911_Aim_for_30002000_px_hyper-realistic_cinematic_lig_1074521f-0072-4511-8689-f5dfb7696758_2 (1).png'
     },
     {
       icon: TrendingUp,
       title: 'Venture Capital\nFinancial Services',
       description: 'Deal flow automation, due diligence streamlining, and portfolio operations optimization for venture capital firms.',
       features: ['Automated deal screening', 'Due diligence workflows', 'Portfolio tracking', 'Investment committee prep'],
-      image: '/public/VC.jpg.png'
+      image: './VC.jpg.png'
     },
     {
       icon: Home,
       title: 'Real Estate Operations',
       description: 'Process optimization, document automation, and workflow management for real estate teams and property management.',
       features: ['Document processing', 'Workflow automation', 'Compliance tracking', 'Performance analytics'],
-      image: '/public/realestate.jpg.png'
+      image: './realestate.jpg.png'
     }
   ];
 
