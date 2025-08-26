@@ -4,12 +4,13 @@ import NeuralNetwork from './NeuralNetwork';
 
 const Hero = () => {
   return (
-    <section className="pt-20 pb-16 bg-vv-dark bg-geometric relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-vv-dark bg-geometric relative overflow-hidden">
       {/* Interactive AI Neural Network Background */}
       <NeuralNetwork />
-      
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="text-center text-white max-w-4xl mx-auto">
+
+      {/* Content - keep above the background */}
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center text-white max-w-4xl mx-auto flex flex-col items-center">
             <div className="flex items-center space-x-2 mb-6">
               <Command className="h-6 w-6 text-vv-teal" />
               <span className="text-vv-teal font-semibold font-military tracking-wider">MILITARY-GRADE AI SOLUTIONS</span>
@@ -38,22 +39,22 @@ const Hero = () => {
               </a>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="flex items-center space-x-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-center w-full">
+              <div className="flex items-center space-x-3 justify-center">
                 <Zap className="h-8 w-8 text-vv-teal" />
                 <div>
                   <div className="text-2xl font-bold gradient-text font-military">30%</div>
                   <div className="text-sm text-gray-400">Efficiency Gains</div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 justify-center">
                 <Command className="h-8 w-8 text-vv-teal" />
                 <div>
                   <div className="text-2xl font-bold gradient-text font-military">100%</div>
                   <div className="text-sm text-gray-400">Compliant</div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 justify-center">
                 <Target className="h-8 w-8 text-vv-teal" />
                 <div>
                   <div className="text-2xl font-bold gradient-text font-military">24/7</div>
