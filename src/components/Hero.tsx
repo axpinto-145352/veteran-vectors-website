@@ -28,7 +28,7 @@ const Hero = () => {
             </p>
 
             <p className="text-lg text-vv-cyan mb-8 font-semibold italic">
-              "Specialized Solutions. Universal Results."
+              "Specialized Solutions for General SMB Problems"
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
