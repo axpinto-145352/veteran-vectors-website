@@ -15,7 +15,7 @@ const Footer = () => {
               />
             </div>
             <div className="mb-4">
-              <span className="text-vv-teal font-military text-lg tracking-wider">AUTOMATE. ACCELERATE. ACHIEVE.</span>
+              <span className="text-vv-teal font-military text-lg tracking-wider">SPECIALIZED SOLUTIONS. UNIVERSAL RESULTS.</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
               Custom AI automation solutions for small businesses. We help you eliminate repetitive tasks,

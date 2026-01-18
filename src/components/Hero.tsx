@@ -21,10 +21,14 @@ const Hero = () => {
               <span className="gradient-text block">WITH AI AUTOMATION</span>
             </h1>
 
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-xl text-gray-300 mb-4 leading-relaxed max-w-2xl">
               Stop wasting time on repetitive tasks. Veteran Vectors delivers custom AI automation
               solutions that help small businesses cut inefficiencies by up to 30%, streamline operations,
               and focus on what matters most - growing your business.
+            </p>
+
+            <p className="text-lg text-vv-cyan mb-8 font-semibold italic">
+              "Specialized Solutions. Universal Results."
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
