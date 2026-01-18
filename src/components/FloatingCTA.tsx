@@ -37,18 +37,18 @@ const FloatingCTA = () => {
         <div className="flex items-center space-x-3 mb-3">
           <Command className="h-6 w-6 text-vv-dark" />
           <div>
-            <div className="font-semibold font-military">MISSION BRIEFING</div>
+            <div className="font-semibold font-military">READY TO AUTOMATE?</div>
             <div className="text-sm opacity-80">Limited spots available this week</div>
           </div>
         </div>
-        
+
         <a
-          href="https://clickveteranvectors.com/60"
+          href="https://calendly.com/anthony-veteranvectors/30min"
           target="_blank"
           rel="noopener noreferrer"
           className="block w-full bg-vv-dark text-vv-teal hover:bg-vv-gray py-2 px-4 rounded-lg font-bold text-center transition-all transform hover:scale-105 font-military"
         >
-          Schedule a 30 min Strategy Call
+          Book Your Free Strategy Call
         </a>
       </div>
     </div>

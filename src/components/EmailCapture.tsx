@@ -6,17 +6,17 @@ const EmailCapture = () => {
     {
       icon: TrendingUp,
       title: 'Industry Trends',
-      description: 'Latest AI adoption trends in Defense, Venture Capital, and Real Estate'
+      description: 'Latest AI automation trends for small businesses across all industries'
     },
     {
       icon: Command,
-      title: 'Compliance Updates',
-      description: 'CMMC, NIST, and regulatory changes affecting your industry'
+      title: 'Automation Strategies',
+      description: 'Practical automation ideas and strategies to grow your business'
     },
     {
       icon: FileText,
       title: 'Case Studies',
-      description: 'Real-world examples of successful automation implementations'
+      description: 'Real-world examples of how businesses are saving time with automation'
     }
   ];
 
@@ -37,7 +37,7 @@ const EmailCapture = () => {
             
             <p className="text-xl text-gray-300 mb-8">
               Real stories. Practical AI. Actionable business insights delivered to your inbox.
-              Get exclusive intelligence on Defense Tech, Venture Capital/Financial Services, and Real Estate automation.
+              Get exclusive automation strategies, case studies, and tips for small business owners.
             </p>
 
             <div className="space-y-6 mb-8">
@@ -64,7 +64,7 @@ const EmailCapture = () => {
                 THE VECTOR REPORT
               </h3>
               <p className="text-gray-300">
-                Get exclusive intelligence on Defense Tech, Venture Capital/Financial Services, and Real Estate automation
+                Get exclusive automation strategies and insights for small business owners
               </p>
             </div>
 
