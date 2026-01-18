@@ -1,55 +1,67 @@
 import React from 'react';
-import { HelpCircle, Command } from 'lucide-react';
+import { Quote, Linkedin } from 'lucide-react';
 
-const FAQs = () => {
-  const faqs = [
+const Testimonials = () => {
+  // Note: Replace these placeholder testimonials with actual LinkedIn recommendations
+  const testimonials = [
     {
-      question: "How do you ensure data security and compliance?",
-      answer: "We operate within strict security parameters, processing only unclassified, public, and client-approved data. All systems run in your tenancy, deliverables live in your repos, and we're happy to be added to your NDAs and follow your access controls. Built-in CMMC and NIST compliance frameworks included."
+      name: "Client Name 1",
+      title: "Position at Company",
+      company: "Company Name",
+      text: "Placeholder testimonial text from LinkedIn. This will be replaced with actual recommendations from your LinkedIn profile.",
+      linkedinUrl: "https://www.linkedin.com/in/anthony-pinto"
     },
     {
-      question: "What if our team has tried AI before and adoption was poor?",
-      answer: "We automate the admin layer (triage, matrices, boilerplates), not SME judgment. This approach leads to higher adoption rates because your experts see less grunt work and can focus on high-value strategic decisions where their expertise matters most."
+      name: "Client Name 2",
+      title: "Position at Company",
+      company: "Company Name",
+      text: "Placeholder testimonial text from LinkedIn. This will be replaced with actual recommendations from your LinkedIn profile.",
+      linkedinUrl: "https://www.linkedin.com/in/anthony-pinto"
     },
     {
-      question: "How quickly can we see ROI from MAaaS implementation?",
-      answer: "Most clients see measurable efficiency gains within 3-6 months. Our phased approach ensures you start seeing value early in the process, with full ROI typically achieved within the first year of implementation."
-    },
-    {
-      question: "Do you work with classified or sensitive data?",
-      answer: "No, we don't touch CUI, classified, or ITAR-controlled data. We work exclusively with unclassified, public, and client-approved information. All processing happens in your secure environment with full audit trails."
-    },
-    {
-      question: "What industries do you specialize in?",
-      answer: "We focus on three key sectors: Defense Tech (SBIR/STTR awardees, contractors), Venture Capital (deal flow, due diligence), and Real Estate (operations, compliance). Our team has deep domain expertise in each vertical."
-    },
-    {
-      question: "How is MAaaS different from other AI consulting?",
-      answer: "MAaaS is end-to-end managed automation, not just consulting. We design, build, deploy, and maintain your AI systems. You get dedicated automation infrastructure without the overhead of building an internal AI team."
+      name: "Client Name 3",
+      title: "Position at Company",
+      company: "Company Name",
+      text: "Placeholder testimonial text from LinkedIn. This will be replaced with actual recommendations from your LinkedIn profile.",
+      linkedinUrl: "https://www.linkedin.com/in/anthony-pinto"
     }
   ];
 
   return (
-    <section id="faqs" className="py-20 bg-vv-dark">
+    <section id="testimonials" className="py-20 bg-vv-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <Linkedin className="h-6 w-6 text-vv-teal" />
+            <span className="text-vv-teal font-semibold font-military tracking-wider">CLIENT TESTIMONIALS</span>
+          </div>
           <h2 className="text-4xl font-bold text-white mb-4 font-military">
-            Frequently Asked Questions
+            What Our Clients Say
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Common questions about our MAaaS platform and how we deliver 
-            military-grade AI automation for your industry.
+            Don't just take our word for it. Here's what business owners say about working with Veteran Vectors.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-6 mb-16">
-          {faqs.map((faq, index) => (
-            <div key={index} className="bg-vv-light-gray rounded-xl p-8 border border-vv-teal/20 hover:border-vv-teal/40 transition-all">
-              <div className="flex items-start space-x-4">
-                <HelpCircle className="h-6 w-6 text-vv-teal mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-4 font-military">{faq.question}</h3>
-                  <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="bg-vv-light-gray rounded-xl p-8 border border-vv-teal/20 hover:border-vv-teal/40 transition-all hover-lift relative">
+              <Quote className="h-10 w-10 text-vv-teal/30 absolute top-6 right-6" />
+              <div className="relative z-10">
+                <p className="text-gray-300 leading-relaxed mb-6 italic">"{testimonial.text}"</p>
+                <div className="border-t border-vv-teal/20 pt-4">
+                  <p className="text-white font-bold font-military">{testimonial.name}</p>
+                  <p className="text-sm text-gray-400">{testimonial.title}</p>
+                  <p className="text-sm text-vv-teal">{testimonial.company}</p>
+                  <a
+                    href={testimonial.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1 text-xs text-gray-400 hover:text-vv-teal transition-colors mt-2"
+                  >
+                    <Linkedin className="h-3 w-3" />
+                    <span>View on LinkedIn</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -57,14 +69,13 @@ const FAQs = () => {
         </div>
 
         <div className="text-center">
-          <a 
-            href="https://clickveteranvectors.com/60"
+          <a
+            href="https://calendly.com/anthony-veteranvectors/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gradient-to-r from-vv-teal to-vv-cyan text-vv-dark px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 inline-flex items-center space-x-2 glow-teal hover-glow font-military"
           >
-            <Command className="h-5 w-5" />
-            <span>Schedule a 30 min Strategy Call</span>
+            <span>Start Your Automation Journey</span>
           </a>
         </div>
       </div>
@@ -72,4 +83,4 @@ const FAQs = () => {
   );
 };
 
-export default FAQs;
+export default Testimonials;

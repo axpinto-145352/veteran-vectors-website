@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import AnimatedMAaaS from './components/AnimatedMAaaS';
-import FAQs from './components/Testimonials';
+import Testimonials from './components/Testimonials';
 import EmailCapture from './components/EmailCapture';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
@@ -15,7 +15,7 @@ function App() {
       <Hero />
       <Services />
       <AnimatedMAaaS />
-      <FAQs />
+      <Testimonials />
       <EmailCapture />
       <Footer />
       <FloatingCTA />

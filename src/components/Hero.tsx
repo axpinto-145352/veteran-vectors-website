@@ -13,28 +13,28 @@ const Hero = () => {
         <div className="text-center text-white max-w-4xl mx-auto flex flex-col items-center">
             <div className="flex items-center space-x-2 mb-6">
               <Command className="h-6 w-6 text-vv-teal" />
-              <span className="text-vv-teal font-semibold font-military tracking-wider">MILITARY-GRADE AI SOLUTIONS</span>
+              <span className="text-vv-teal font-semibold font-military tracking-wider">AI AUTOMATION FOR SMALL BUSINESSES</span>
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 font-military">
-              COMMAND. CODE. 
-              <span className="gradient-text block"> CONQUER.</span>
+              SCALE YOUR BUSINESS
+              <span className="gradient-text block">WITH AI AUTOMATION</span>
             </h1>
-            
+
             <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
-              Veteran Vectors delivers Managed Automation as a Service (MAaaS) for defense tech, 
-              venture capital/financial services, and real estate. Cut inefficiencies by up to 30% with end-to-end 
-              AI systems that streamline workflows and ensure compliance.
+              Stop wasting time on repetitive tasks. Veteran Vectors delivers custom AI automation
+              solutions that help small businesses cut inefficiencies by up to 30%, streamline operations,
+              and focus on what matters most - growing your business.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a 
-                href="https://clickveteranvectors.com/60"
+              <a
+                href="https://calendly.com/anthony-veteranvectors/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-vv-teal to-vv-cyan text-vv-dark px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 flex items-center justify-center space-x-2 glow-teal hover-glow font-military"
               >
-                <span>Schedule a 30 min Strategy Call</span>
+                <span>Book Your Free Strategy Call</span>
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -44,21 +44,21 @@ const Hero = () => {
                 <Zap className="h-8 w-8 text-vv-teal" />
                 <div>
                   <div className="text-2xl font-bold gradient-text font-military">30%</div>
-                  <div className="text-sm text-gray-400">Efficiency Gains</div>
+                  <div className="text-sm text-gray-400">Time Savings</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 justify-center">
                 <Command className="h-8 w-8 text-vv-teal" />
                 <div>
-                  <div className="text-2xl font-bold gradient-text font-military">100%</div>
-                  <div className="text-sm text-gray-400">Compliant</div>
+                  <div className="text-2xl font-bold gradient-text font-military">Custom</div>
+                  <div className="text-sm text-gray-400">Solutions</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 justify-center">
                 <Target className="h-8 w-8 text-vv-teal" />
                 <div>
-                  <div className="text-2xl font-bold gradient-text font-military">24/7</div>
-                  <div className="text-sm text-gray-400">Support</div>
+                  <div className="text-2xl font-bold gradient-text font-military">ROI</div>
+                  <div className="text-sm text-gray-400">Focused</div>
                 </div>
               </div>
             </div>

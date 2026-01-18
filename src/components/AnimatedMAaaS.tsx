@@ -53,11 +53,11 @@ const AnimatedMAaaS = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4 font-military">
-            MAaaS Implementation Process
+            How We Automate Your Business
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Our Managed Automation as a Service (MAaaS) approach ensures every AI system 
-            delivers measurable results while maintaining military-grade security and compliance standards.
+            Our proven 4-step process ensures you get custom automation solutions that deliver
+            real results. From discovery to ongoing optimization, we're with you every step of the way.
           </p>
         </div>
 
@@ -194,18 +194,19 @@ const AnimatedMAaaS = () => {
         {/* CTA Section */}
         <div className="bg-gradient-to-r from-vv-teal to-vv-cyan rounded-2xl p-8 lg:p-12 text-center text-vv-dark glow-cyan">
           <Command className="h-16 w-16 mx-auto mb-6" />
-          <h3 className="text-3xl font-bold mb-6 font-military">READY FOR MAaaS TRANSFORMATION?</h3>
+          <h3 className="text-3xl font-bold mb-6 font-military">READY TO AUTOMATE YOUR BUSINESS?</h3>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Join defense tech, venture capital/financial services, and real estate leaders who've already automated their way to 30% efficiency gains with our MAaaS platform.
+            Join small business owners who are already saving time and scaling faster with our custom automation solutions.
+            Book a free strategy call to see how we can help you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="https://clickveteranvectors.com/60"
+            <a
+              href="https://calendly.com/anthony-veteranvectors/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-vv-dark text-vv-teal hover:bg-vv-gray px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 inline-flex items-center justify-center font-military border border-vv-dark hover:border-vv-teal"
             >
-              Schedule a 30 min Strategy Call
+              Book Your Free Strategy Call
             </a>
           </div>
         </div>

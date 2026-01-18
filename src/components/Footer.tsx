@@ -15,11 +15,11 @@ const Footer = () => {
               />
             </div>
             <div className="mb-4">
-              <span className="text-vv-teal font-military text-lg tracking-wider">COMMAND. CODE. CONQUER.</span>
+              <span className="text-vv-teal font-military text-lg tracking-wider">AUTOMATE. ACCELERATE. ACHIEVE.</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Military-grade AI automation solutions for Defense Tech, Venture Capital/Financial Services, and Real Estate. 
-              Delivering Managed Automation as a Service (MAaaS) with measurable ROI and built-in compliance.
+              Custom AI automation solutions for small businesses. We help you eliminate repetitive tasks,
+              save time, and scale your operations with proven automation strategies.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/profile.php?id=61578935486998#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-vv-teal transition-colors">
@@ -38,12 +38,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-6 font-military text-vv-teal">SECTORS WE SERVE</h4>
+            <h4 className="text-lg font-semibold mb-6 font-military text-vv-teal">QUICK LINKS</h4>
             <ul className="space-y-3 text-gray-300">
-              <li><a href="#services" className="hover:text-vv-teal transition-colors">Defense Tech Automation</a></li>
-              <li><a href="#services" className="hover:text-vv-teal transition-colors">Venture Capital/Financial Services</a></li>
-              <li><a href="#services" className="hover:text-vv-teal transition-colors">Real Estate</a></li>
-              <li><a href="#maas" className="hover:text-vv-teal transition-colors">MAaaS Process</a></li>
+              <li><a href="#services" className="hover:text-vv-teal transition-colors">Our Services</a></li>
+              <li><a href="#testimonials" className="hover:text-vv-teal transition-colors">Testimonials</a></li>
+              <li><a href="#maas" className="hover:text-vv-teal transition-colors">How It Works</a></li>
+              <li><a href="/newsletter.html" className="hover:text-vv-teal transition-colors">The Vector Report</a></li>
+              <li><a href="/faq.html" className="hover:text-vv-teal transition-colors">FAQs</a></li>
             </ul>
           </div>
 
@@ -57,13 +58,13 @@ const Footer = () => {
             </div>
             
             <div className="mt-8">
-              <a 
-                href="https://clickveteranvectors.com/60"
+              <a
+                href="https://calendly.com/anthony-veteranvectors/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-vv-teal to-vv-cyan text-vv-dark px-6 py-3 rounded-lg font-bold transition-all inline-block hover-glow font-military"
               >
-                Schedule a 30 min Strategy Call
+                Book Your Free Call
               </a>
             </div>
           </div>
