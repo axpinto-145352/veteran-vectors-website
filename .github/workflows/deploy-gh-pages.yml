@@ -86,7 +86,8 @@ jobs:
           done
 
           # Copy top-level files that are commonly required
-          cp -f index.html public/index.html || true
+          # NOTE: index.html comes from dist/ - do not overwrite it
+          # cp -f index.html public/index.html || true
           cp -f FAQ.html public/FAQ.html || true
           cp -f faq.html public/faq.html || true
           cp -f newsletter.html public/newsletter.html || true
