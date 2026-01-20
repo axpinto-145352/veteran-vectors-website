@@ -5,23 +5,23 @@ const About = () => {
   const achievements = [
     {
       icon: Target,
-      stat: "10hrs → 10min",
-      label: "Time Reduction"
+      stat: "150+",
+      label: "Hours Gained/Month"
     },
     {
       icon: Users,
-      stat: "50+",
-      label: "Clients Served"
+      stat: "$100k+",
+      label: "Revenue/Time Value"
     },
     {
       icon: TrendingUp,
-      stat: "30%",
-      label: "Avg Efficiency Gain"
+      stat: ">90%",
+      label: "Time Savings"
     },
     {
       icon: Award,
-      stat: "Veteran",
-      label: "Military Precision"
+      stat: "50%+",
+      label: "Efficiency Gains"
     }
   ];
 

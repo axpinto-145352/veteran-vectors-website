@@ -47,22 +47,22 @@ const Hero = () => {
               <div className="flex items-center space-x-3 justify-center">
                 <Zap className="h-8 w-8 text-vv-teal" />
                 <div>
-                  <div className="text-2xl font-bold gradient-text font-military">30%</div>
+                  <div className="text-2xl font-bold gradient-text font-military">&gt;90%</div>
                   <div className="text-sm text-gray-400">Time Savings</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 justify-center">
                 <Command className="h-8 w-8 text-vv-teal" />
                 <div>
-                  <div className="text-2xl font-bold gradient-text font-military">Custom</div>
-                  <div className="text-sm text-gray-400">Solutions</div>
+                  <div className="text-2xl font-bold gradient-text font-military">10+</div>
+                  <div className="text-sm text-gray-400">Clients Served</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 justify-center">
                 <Target className="h-8 w-8 text-vv-teal" />
                 <div>
-                  <div className="text-2xl font-bold gradient-text font-military">ROI</div>
-                  <div className="text-sm text-gray-400">Focused</div>
+                  <div className="text-2xl font-bold gradient-text font-military">50%+</div>
+                  <div className="text-sm text-gray-400">Efficiency Gains</div>
                 </div>
               </div>
             </div>

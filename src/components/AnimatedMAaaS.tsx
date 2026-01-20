@@ -10,40 +10,40 @@ const AnimatedMAaaS = () => {
       icon: Search,
       title: 'Discovery & Assessment',
       shortDescription: 'Comprehensive workflow analysis and automation opportunity mapping',
-      detailedDescription: 'We conduct a comprehensive analysis of your current workflows, identify bottlenecks, and map automation opportunities with the highest ROI potential. Our team performs security assessments, compliance reviews, and stakeholder interviews to understand your unique requirements.',
-      timeline: 'Week 1-2',
-      deliverables: ['Workflow Analysis Report', 'ROI Opportunity Matrix', 'Security Assessment', 'Implementation Roadmap']
+      detailedDescription: 'We conduct an audit of your business and processes to determine the most likely path to automation. Our team performs a comprehensive analysis to understand your unique requirements and identify the highest-impact opportunities.',
+      timeline: '1-2 weeks',
+      deliverables: ['Audit of Businesses and Processes', 'Determination of automation path', 'ROI Opportunity Matrix', 'Implementation Roadmap']
     },
     {
       icon: Cog,
-      title: 'MAaaS Design & Build',
-      shortDescription: 'Custom AI automation systems tailored to your industry requirements',
-      detailedDescription: 'Our team designs and builds custom AI automation systems tailored to your specific industry requirements, compliance needs, and existing tech stack. We develop secure, scalable solutions that integrate seamlessly with your current infrastructure.',
-      timeline: 'Weeks 3-6',
-      deliverables: ['System Architecture', 'Custom AI Models', 'Integration Modules', 'Testing Framework']
+      title: 'Build & Implementation',
+      shortDescription: 'Custom AI automation systems tailored to your business needs',
+      detailedDescription: 'Our team builds custom solutions tailored to your specific requirements, develops an implementation plan, conducts thorough testing, and handles onboarding. We deliver a final product ready for your business.',
+      timeline: '3-4 weeks',
+      deliverables: ['Custom solution build', 'Implementation plan', 'Testing', 'Onboarding and Delivery']
     },
     {
       icon: Rocket,
       title: 'Deployment & Integration',
       shortDescription: 'Secure deployment with comprehensive training and documentation',
       detailedDescription: 'We deploy automation systems in your secure environment with comprehensive training, documentation, and seamless integration with existing workflows. Our team ensures zero downtime deployment and provides hands-on training for your staff.',
-      timeline: 'Weeks 7-8',
+      timeline: '4-6 weeks',
       deliverables: ['Production Deployment', 'User Training', 'Documentation Package', 'Support Protocols']
     },
     {
       icon: BarChart,
       title: 'Monitoring & Optimization',
       shortDescription: 'Continuous monitoring and performance optimization for maximum ROI',
-      detailedDescription: 'Continuous monitoring, performance optimization, and iterative improvements to ensure maximum efficiency and measurable ROI. We provide 24/7 system monitoring, regular performance reports, and ongoing optimization recommendations.',
-      timeline: 'Ongoing',
-      deliverables: ['Performance Dashboard', 'Monthly Reports', 'Optimization Updates', '24/7 Support']
+      detailedDescription: 'Ongoing support through a retainer in scope work, continuous monitoring, security updates, and user training. We provide iterative improvements to ensure maximum efficiency and measurable ROI.',
+      timeline: '6+ weeks',
+      deliverables: ['Ongoing Support', 'Retainer in Scope Work', 'Security updates', 'User training']
     }
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 4000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
